@@ -27,7 +27,7 @@ def draw_graph_size(A,node_weights,pos=nx.circular_layout,vmin=0,vmax=1):
     if vmin is not None and vmax is not None:
         node_weights = 300*(node_weights-vmin)/(vmax-vmin)
     G = nx.from_numpy_matrix(A)
-    nx.draw_networkx(G,node_size=node_weights,pos=pos(G),cmap='Greys',vmin=vmin,vmax=vmax,with_labels=True,width=[v['weight'] for _,_,v in G.edges(data=True)])
+    nx.draw_networkx(G,node_size=node_weights,pos=pos(G),cmap='Greys',vmin=vmin,vmax=vmax,with_labels=False,width=[v['weight'] for _,_,v in G.edges(data=True)])
 
 def draw_graph_color(A,node_weights,pos=nx.circular_layout,vmin=0,vmax=1):
     G = nx.from_numpy_matrix(A)

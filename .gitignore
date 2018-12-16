@@ -79,3 +79,4 @@ env
 *.swp 
 *.swo 
 __pycache__
+*.png

@@ -4,7 +4,8 @@
 import numpy as np
 from pygfl.easy import solve_gfl
 
-def sparsemax(z):
+def sparsemax(z,gamma=1):
+    z = z / gamma
     z_sorted = np.sort(z)[::-1]
     cumsum = np.cumsum(z_sorted)
     k = 0
@@ -23,8 +24,8 @@ def gfusedlasso(z,A,lam=None):
     z_fused = solve_gfl(z,edges,lam=lam)
     return z_fused
 
-def gfusedmax(z,A,lam=None):
+def gfusedmax(z,A,lam=None,gamma=1):
     z_fused = gfusedlasso(z,A,lam)
-    return sparsemax(z_fused)
+    return sparsemax(z_fused,gamma)
 
 
